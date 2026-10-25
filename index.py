@@ -14,17 +14,37 @@ RED = "\033[91m"
 CYAN = "\033[96m"
 RESET = "\033[0m"
 
+# =========================================================
+# KONFIGURASI TELEGRAM BOT (Taruh di sini)
+# =========================================================
+TELE_TOKEN = "8954438858:AAGAZ2ctmYL0kLl-SWLramgK14viM_20K28"
+TELE_CHAT_ID = "6636133008"
+
+
+def send_telegram_msg(message):
+    """Fungsi untuk mengirim notifikasi ke Telegram"""
+    url = f"https://api.telegram.org/bot{TELE_TOKEN}/sendMessage"
+    payload = {"chat_id": TELE_CHAT_ID, "text": message, "parse_mode": "Markdown"}
+    try:
+        requests.post(url, json=payload, timeout=5)
+    except Exception as e:
+        print(f"{RED}[!] Gagal kirim notif Telegram: {e}{RESET}")
+
+
 def banner():
-    os.system('clear' if os.name == 'posix' else 'cls')
-    print(f"{CYAN}======================================================")
-    print("      🚀 SHOPEE BOT ALL-IN-ONE (TERMUX & PC) 🚀       ")
-    print("               Developer: @marselus               ")
-    print(f"======================================================{RESET}\n")
+    os.system("clear" if os.name == "posix" else "cls")
+    print(f"{CYAN}====================================================")
+    print("    🚀 SHOPEE BOT ALL-IN-ONE (TERMUX & PC) 🚀")
+    print("           Developer: @marselus")
+    print(f"===================================================={RESET}\n")
+
 
 def simpan_laporan(filename, content):
     """Fungsi untuk menyimpan hasil cek ke file eksternal"""
     with open(filename, "a", encoding="utf-8") as f:
         f.write(content + "\n")
+
+
 def parse_cookies(cookie_string):
     cookies = {}
     for item in cookie_string.split(";"):
@@ -32,7 +52,6 @@ def parse_cookies(cookie_string):
             key, value = item.strip().split("=", 1)
             cookies[key] = value
     return cookies
-
 def cek_misi_qris():
     banner()
     print(f"{YELLOW}[+] Running: Cek Misi Bayar QRIS (Check-In Koin Shopee)...{RESET}\n")
@@ -46,6 +65,14 @@ def cek_misi_qris():
     time.sleep(1)
     hasil = "Account: User1 | Status: Success Check-In Koin QRIS"
     print(f"{GREEN}✓ {hasil}{RESET}")
+    time.sleep(1)
+    hasil = "Account: User1 | Status: Success Check-In Koin QRIS"
+    print(f"{GREEN}✓ {hasil}{RESET}")
+
+    # PANGGIL NOTIFIKASI TELEGRAM DI SINI:
+    send_telegram_msg(f"🎉 *Shopee Bot Update*\n{hasil}")
+
+    simpan_laporan("qris_result.pip install requestscsv", "User1,Success,Check-In")
     simpan_laporan("qris_result.csv", "User1,Success,Check-In")
     input("\nTekan Enter untuk kembali ke menu...")
 def cek_voucher_food():
