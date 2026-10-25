@@ -1,6 +1,11 @@
 import os
 import time
 import sys
+import json
+import os
+import sys
+import time
+import requests
 
 # Warna terminal (ANSI Escape Codes)
 GREEN = "\033[92m"
@@ -20,16 +25,29 @@ def simpan_laporan(filename, content):
     """Fungsi untuk menyimpan hasil cek ke file eksternal"""
     with open(filename, "a", encoding="utf-8") as f:
         f.write(content + "\n")
+def parse_cookies(cookie_string):
+    cookies = {}
+    for item in cookie_string.split(";"):
+        if "=" in item:
+            key, value = item.strip().split("=", 1)
+            cookies[key] = value
+    return cookies
 
 def cek_misi_qris():
     banner()
     print(f"{YELLOW}[+] Running: Cek Misi Bayar QRIS (Check-In Koin Shopee)...{RESET}\n")
+    
+    # 1. Minta input cookie dari pengguna
+    cookie_input = input("Masukkan Cookie Shopee: ")
+    
+    # 2. Proses cookie menggunakan parse_cookies
+    cookies = parse_cookies(cookie_input)
+    
     time.sleep(1)
     hasil = "Account: User1 | Status: Success Check-In Koin QRIS"
     print(f"{GREEN}✓ {hasil}{RESET}")
     simpan_laporan("qris_result.csv", "User1,Success,Check-In")
     input("\nTekan Enter untuk kembali ke menu...")
-
 def cek_voucher_food():
     banner()
     print(f"{YELLOW}[+] Running: Cek Voucher Shopee Food (Diskon 25RB & Ongkir 12RB)...{RESET}\n")
