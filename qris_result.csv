@@ -3,3 +3,40 @@ User1,Success,Check-In
 User1,Success,Check-In
 User1,Success,Check-In
 User1,Success,Check-In
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Success,Check-In
+User1,Failed,Gagal Check-In / Cookie Expired
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
+User1,Failed,Response: {'error': 'error_not_found'}
